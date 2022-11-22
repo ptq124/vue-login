@@ -4,10 +4,18 @@ import uvicorn
 from fastapi import FastAPI,Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from user import create_access_token,authenticate_user, fake_users_db, ACCESS_TOKEN_EXPIRE_MINUTES,SECRET_KEY,ALGORITHM,User
-
+from fastapi.middleware.cors import CORSMiddleware
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='login')
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 @app.get("/")
 async def root():
