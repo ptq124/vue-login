@@ -4,6 +4,8 @@ backend(간단하게)
 
 fastapi로 token api를 만들어 username과 password를 받으면 access_token을 반환하도록 구현
 
+frontend
+
 vue Login, TodoList
 
 - login 기능 구현 token api를 call하여 로컬스토리지에 저장 
